@@ -1,0 +1,160 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VDMX Multi-User Control</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset default margins and paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Dark Theme Styling */
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    /* Header Image Styling */
+    .header {
+      width: 80%;
+      max-width: 400px;
+      margin-bottom: 30px;
+    }
+
+    .header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Control Container Styling */
+    .controls {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* Individual Control Styling */
+    .control {
+      margin-bottom: 25px;
+    }
+
+    .control label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    /* Slider Styling */
+    .control input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 15px;
+      border-radius: 7.5px;
+      background: #ffffff33; /* Semi-transparent white */
+      outline: none;
+      transition: background 0.3s;
+    }
+
+    /* Slider Thumb Styling */
+    .control input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      transition: background 0.3s, border 0.3s;
+      margin-top: -5px; /* Align thumb vertically */
+    }
+
+    .control input[type=range]::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      transition: background 0.3s, border 0.3s;
+    }
+
+    /* Slider Track Hover Effect */
+    .control input[type=range]:hover {
+      background: #ffffff55;
+    }
+
+    /* Slider Thumb Hover Effect */
+    .control input[type=range]::-webkit-slider-thumb:hover,
+    .control input[type=range]::-moz-range-thumb:hover {
+      background: #ffffffcc;
+      border: 2px solid #ffffff;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      .header {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      .control label {
+        font-size: 1em;
+      }
+
+      .control input[type=range] {
+        height: 12px;
+      }
+
+      .control input[type=range]::-webkit-slider-thumb,
+      .control input[type=range]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Image -->
+  <div class="header">
+    <img src="images/mw.png" alt="Header Image">
+  </div>
+
+  <!-- Control Sliders -->
+  <div class="controls">
+    <!-- PARAM-1 Slider -->
+    <div class="control">
+      <label for="PARAM-1">PARAM-1</label>
+      <input type="range" id="PARAM-1" name="PARAM-1" min="0" max="100" value="50">
+    </div>
+
+    <!-- PARAM-2 Slider -->
+    <div class="control">
+      <label for="PARAM-2">PARAM-2</label>
+      <input type="range" id="PARAM-2" name="PARAM-2" min="0" max="100" value="50">
+    </div>
+
+    <!-- PARAM-3 Slider -->
+    <div class="control">
+      <label for="PARAM-3">PARAM-3</label>
+      <input type="range" id="PARAM-3" name="PARAM-3" min="0" max="100" value="50">
+    </div>
+  </div>
+</body>
+</html>
